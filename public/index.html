@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#123b32">
+    <title>Urbanrise | Site visits</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <header>
+        <p class="eyebrow">URBANRISE · SITE SALES</p>
+        <h1>Today’s visits</h1>
+        <p class="subtitle">Record what happened and the next action before moving to your next meeting.</p>
+      </header>
+
+      <section class="filters" aria-label="Visit filters">
+        <label>Executive
+          <select id="executive">
+            <option value="EX-01">EX-01 · Meenakshi</option>
+            <option value="EX-02">EX-02 · Farhan</option>
+            <option value="EX-03">EX-03 · Joseph</option>
+          </select>
+        </label>
+        <label>Date
+          <select id="date">
+            <option value="2026-10-06">6 Oct 2026</option>
+            <option value="2026-10-07">7 Oct 2026</option>
+            <option value="2026-10-08">8 Oct 2026</option>
+          </select>
+        </label>
+      </section>
+
+      <p id="status" class="status" role="status" aria-live="polite"></p>
+      <section id="visits" class="visit-list" aria-label="Scheduled visits"></section>
+    </main>
+    <template id="visit-template">
+      <article class="visit-card">
+        <div class="visit-heading">
+          <time class="visit-time"></time>
+          <span class="outcome-badge"></span>
+        </div>
+        <h2 class="customer"></h2>
+        <p class="details"></p>
+        <p class="phone"></p>
+        <p class="brief"><span>Demo AI brief</span><br><span class="brief-text"></span></p>
+        <label>Outcome
+          <select class="outcome" aria-label="Visit outcome">
+            <option value="">Select outcome</option>
+            <option>Interested</option>
+            <option>Needs time</option>
+            <option>Not interested</option>
+            <option>No show</option>
+          </select>
+        </label>
+        <label>Next action
+          <textarea class="next-action" rows="2" maxlength="500" placeholder="e.g. Call on Monday"></textarea>
+        </label>
+        <button class="save" type="button">Save update</button>
+        <p class="card-message" role="status" aria-live="polite"></p>
+      </article>
+    </template>
+    <script src="/app.js"></script>
+  </body>
+</html>

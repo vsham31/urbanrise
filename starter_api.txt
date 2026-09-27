@@ -1,0 +1,31 @@
+// starter_api.js — a first draft written with an AI assistant. You may start from it or from scratch.
+// If you use it, fix what is wrong. Run: node starter_api.js   (needs express and csv-parse)
+const express = require('express');
+const fs = require('fs');
+const { parse } = require('csv-parse/sync');
+const app = express();
+app.use(express.json());
+
+let visits = parse(fs.readFileSync('visits.csv'), { columns: true });
+
+// GET /visits?executive=EX-01&date=2026-10-06  → the executive's visits for that day, phone masked
+app.get('/visits', (req, res) => {
+  const { executive, date } = req.query;
+  const rows = visits.filter(v => v.executive.startsWith(executive) && v.visit_at.startsWith(date));
+  res.json(rows.map(v => ({ ...v, phone: v.phone.slice(0, 4) + '******' })));
+});
+
+// POST /visits/:id/outcome  { outcome, next_action }
+app.post('/visits/:id/outcome', (req, res) => {
+  const v = visits.find(x => x.visit_id == req.params.id);
+  v.outcome = req.body.outcome;
+  v.next_action = req.body.next_action;
+  fs.writeFileSync('visits.csv', toCsv(visits));
+  res.json({ ok: true });
+});
+
+function toCsv(rows) {
+  const cols = Object.keys(rows[0]);
+  return [cols.join(','), ...rows.map(r => cols.map(c => r[c]).join(','))].join('\n');
+}
+app.listen(3000, () => console.log('listening on 3000'));

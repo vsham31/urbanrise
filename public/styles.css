@@ -1,0 +1,31 @@
+:root { color-scheme: light; font-family: Inter, ui-sans-serif, system-ui, sans-serif; color: #16251f; background: #f5f4ed; }
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; }
+button, select, textarea { font: inherit; }
+.app-shell { width: min(100%, 560px); margin: 0 auto; padding: 24px 16px 48px; }
+header { margin-bottom: 20px; }
+.eyebrow { margin: 0 0 7px; color: #24705b; font-size: .74rem; font-weight: 800; letter-spacing: .11em; }
+h1 { margin: 0; font-size: 2rem; letter-spacing: -.04em; }
+.subtitle { margin: 8px 0 0; color: #59645e; line-height: 1.45; }
+.filters { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 12px; background: #e6eee9; border-radius: 14px; }
+label { display: grid; gap: 6px; color: #425048; font-size: .82rem; font-weight: 700; }
+select, textarea { width: 100%; border: 1px solid #c4d0c9; border-radius: 9px; background: #fff; color: #16251f; padding: 10px; min-height: 44px; }
+textarea { resize: vertical; line-height: 1.35; }
+.status { min-height: 24px; margin: 16px 0 10px; color: #526059; font-size: .9rem; }
+.error { color: #a22b25 !important; }
+.visit-list { display: grid; gap: 12px; }
+.visit-card { padding: 16px; border: 1px solid #d7ddd8; border-radius: 16px; background: #fff; box-shadow: 0 1px 2px rgb(15 38 28 / 5%); }
+.visit-heading { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.visit-time { color: #17684f; font-size: 1.08rem; font-weight: 800; }
+.outcome-badge { padding: 4px 8px; border-radius: 99px; background: #dceee5; color: #146244; font-size: .75rem; font-weight: 800; }
+.outcome-badge.pending { background: #f3ead1; color: #795a11; }
+h2 { margin: 10px 0 3px; font-size: 1.14rem; }
+.details, .phone { margin: 2px 0; color: #526059; font-size: .9rem; }
+.brief { margin: 12px 0; padding: 10px; border-left: 3px solid #80ad99; background: #f2f7f3; color: #405148; font-size: .84rem; line-height: 1.45; white-space: pre-line; }
+.brief > span:first-child { color: #17684f; font-size: .72rem; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; }
+.visit-card > label { margin-top: 12px; }
+.save { width: 100%; min-height: 46px; margin-top: 14px; border: 0; border-radius: 10px; background: #17684f; color: #fff; font-weight: 800; cursor: pointer; }
+.save:disabled { background: #789a8d; cursor: wait; }
+.card-message { min-height: 20px; margin: 8px 0 0; font-size: .85rem; }
+.success { color: #146244; }
+@media (max-width: 360px) { .app-shell { padding-inline: 12px; } h1 { font-size: 1.76rem; } }
